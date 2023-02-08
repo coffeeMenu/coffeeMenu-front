@@ -1,6 +1,9 @@
+import Product from '@/components/Product';
 import { groupByCategory } from '@/modules/category';
 import { errorHandler } from '@/modules/errorHandler';
-import { pb } from '@/modules/pocketbase';
+import { apiUrl, pb } from '@/modules/pocketbase';
+import { getPictureUrl } from 'coffeemenu-shard-logic';
+import Image from 'next/image';
 
 // TODO dynamic favicon => logo of store
 // TODO SEO
@@ -66,12 +69,38 @@ export default function Username(props: Props) {
         return (
           <div key={group}>
             <h2 className="p-2 text-2xl">{group}</h2>
-            <>
-              {groupedRecords[group].map((product: any) => {
-                return <div key={product.id}>{product.name}</div>;
-              })}
-            </>
             <hr />
+            <div
+              id={'productGroup-' + group}
+              className="flex overflow-hidden flex-wrap justify-center"
+            >
+              {groupedRecords[group].map((product: any) => {
+                return (
+                  <>
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                    <Product key={product.id} product={product} />
+                  </>
+                );
+              })}
+            </div>
           </div>
         );
       })}
